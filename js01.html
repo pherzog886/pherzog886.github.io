@@ -11,24 +11,25 @@
     <h1 style="font-family: Georgia"> About Me </h1>
     
     <h3 style="font-family: perpetua; background-color: #ba6a6a"> What I do </h3>
+    
 <button id="job">
     Click here to find out!
 </button>
-<p class="data" hidden id="job">
+<p class="data" id="job">
     I am a student in the class Web Mapping and Application.
 </p>
 
 <script>
-    //$("p") <-- this will reference all of the <p> tags
-    //$("#job") <-- this will reference all "#job" ids
-    //$(".data") <-- this will reference all ".data" classes
+    // $("p") <-- this will reference all of the <p> tags
+    // $("#job") <-- this will reference all "#job" ids
+    // $(".data") <-- this will reference all ".data" classes
 
     // use jQuery to listen for a button click
     // toggle the hidden job message
 
     $("button#job").click(
             function() {
-                $("p#job").fadeToggle();
+                $("p#job").fadeToggle("slow");
             }
         );
     
