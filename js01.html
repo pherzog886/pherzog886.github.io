@@ -29,10 +29,13 @@
 
     $("button#job").click(
             function() {
-                $("p#job").fadeToggle("slow");
+                $("p#job").toggle();
             }
         );
-    
+    $("h3").hover(
+            function() {
+                console.log("h3 hover;");
+            });
 </script>
     
     <h3> Where I live </h3>
