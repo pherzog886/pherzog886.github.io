@@ -101,8 +101,48 @@
     <li> Intern at the State Department </li>
 </ul>     
     
+<button id="job">
+    Suprise Number One!
+</button>
+    
 <a href="lab02.html"> This is a link to my previous lab file. </a>
+
+<script>
+    // $("a") <-- this will reference all of the <a> tags
+    // $("#job") <-- this will reference all "#job" ids
+    // $(".data") <-- this will reference all ".data" classes
+
+    // use jQuery to listen for a button click
+    // toggle the hidden job message
+
+    $("button#job").click(
+            function() {
+                $("a#job").toggle();
+            }
+        );
+</script>
+
+<button id="job">
+    Suprise Number Two! (Less Fun though)
+</button>
+    
 <a href="https://www.linkedin.com/in/prescott-herzog-22347a170"> This is a link to my LinkedIn </a>  
+
+<script>
+    // $("a") <-- this will reference all of the <a> tags
+    // $("#job") <-- this will reference all "#job" ids
+    // $(".data") <-- this will reference all ".data" classes
+
+    // use jQuery to listen for a button click
+    // toggle the hidden job message
+
+    $("button#job").click(
+            function() {
+                $("a#job").toggle();
+            }
+        );
+</script>
+    
     
 </body>
 </html>
