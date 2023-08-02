@@ -19,6 +19,18 @@
 </p>
 
 <script>
+    // $("p") <-- this will reference all of the <p> tags
+    // $("#job") <-- this will reference all "job" id's
+    // $(".data") <-- this will reference all ".data" classes
+
+    // use jQuery to listen for a button click
+    // toggle the hidden job message
+
+    $("button#job").click(
+            function() {
+                $("p#job").toggle();
+            }
+        );
     
 </script>
     
