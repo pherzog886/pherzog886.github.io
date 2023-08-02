@@ -19,7 +19,7 @@
       $(".letter").click(
             function() {
                   var id = $(this).attr('id');
-                  console.log("Clicked on" + id);
+                  console.log(" Clicked on " + id);
 
               if(guesses.includes(id)) { 
                   $("error_msg").html("You already guessed" + id);
@@ -28,7 +28,7 @@
 
                   total_guesses = total_guesses -1;
                   if (total_guesses < 0) {
-                    $("error_msg").html("You are out of guesses. YOU LOSE!")
+                    $("#error_msg").html("You are out of guesses. YOU LOSE!")
               } else {
                     $("#numleft").html(total_guesses);
               }
