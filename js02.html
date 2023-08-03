@@ -34,6 +34,15 @@
                     $("#error_msg").html("You are out of guesses. YOU LOSE!")
               } else {
                     $("#numleft").html(total_guesses);
+
+                    if (word.includes(id)) {
+                      var index = word.indexOf(id);
+                      console.log("letter" + id + "is at index" + index);
+                      blanks = blanks.substr(0,index) + id + 
+                               blanks.substr(index + 1); 
+                      $("#word").html(blanks);
+                    }
+                    
               }
           }
        }
