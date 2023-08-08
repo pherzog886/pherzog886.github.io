@@ -26,7 +26,11 @@ var OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{
                     layers: [OpenStreetMap_HOT]
                 }) 
 
-                   L.geoJson(trails_geojson).addTo(map);
+                   L.geoJson(trails_geojson,
+                             { color: "green",
+                              weight: 5
+                              opacity: .5
+                             }).addTo(map);
                 
             }
         </script>
