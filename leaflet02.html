@@ -15,23 +15,23 @@
                 
         <script>
 
-                var OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', 
+var OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', 
         { maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" 
                 target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>' });
-                
+
             function  initialize() {
                 var map = L.map('map', {
                     center: [ 43.7034, -72.2887 ],
                     zoom: 15,
                     layers: [OpenStreetMap_HOT]
                 }) 
+
+                   L.geoJson(trails_geojson).addTo(map);
                 
-                L.geoJson(trails_geojson).addTo(map);
-                        
             }
         </script>
 </head>
-<body onload="initialize()">
+<body onload="initialize(map)">
       <h1> Hello Campus! </h1>
       <div id="map"> </div>
   </body>
