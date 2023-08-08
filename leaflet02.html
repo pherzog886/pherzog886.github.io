@@ -25,6 +25,9 @@
                     zoom: 15,
                     layers: [OpenStreetMap_HOT]
                 }) 
+                
+                L.geoJson(trails_geojson).addTo(map);
+                        
             }
         </script>
 </head>
