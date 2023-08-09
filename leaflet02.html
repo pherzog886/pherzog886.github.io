@@ -27,14 +27,15 @@
                     layers: [OpenStreetMap_HOT]
                 }) 
 
+                    
             L.geoJson(trails_geojson,
-                 { color: "blue"
+                      { color: "blue"
                         weight: 5
                         opacity: .5
                         onEachFeature: function(feature, layer) {
                         layer.bindPopup("<b>Traim Name: " + feature.properties.TRAILNAME "</b>")
-                                 }
-                }).addTo(map);
+                                 
+                                        }).addTo(map);
                     
             }
         </script>
