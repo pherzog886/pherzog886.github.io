@@ -29,7 +29,7 @@ var OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{
                 }) 
 
                    L.geoJson(trails_geojson,
-                             { color: "grey",
+                             { color: "blue"
                               weight: 5
                               opacity: .5
                                  onEachFeature: function(feature, layer) {
@@ -40,7 +40,7 @@ var OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{
             }
         </script>
 </head>
-<body onload="initialize(map)">
+<body onload="initialize()">
       <h1> Hello Campus! </h1>
       <div id="map"> </div>
   </body>
