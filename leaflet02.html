@@ -14,7 +14,7 @@
                 html, body {height: 100%; margin: 0; padding: 0; }
         </style>
 
-        <script src="Trails.geojsn"> </script>
+        <script src="ctRiver.geojsn"> </script>
                 
         <script>
         
@@ -28,12 +28,12 @@
                 }) 
 
                     
-            L.geoJson(trails_geojson,
-                      { color: "blue"
+            L.geoJson(ctRiver_geojson,
+                      { color: "red"
                         weight: 5
                         opacity: .5
                         onEachFeature: function(feature, layer) {
-                        layer.bindPopup("<b>Traim Name: " + feature.properties.TRAILNAME "</b>")
+                        layer.bindPopup("<b>Landmark Name: " + feature.properties.LANDMARKNAME "</b>")
                                         }).addTo(map);
                     
             }
