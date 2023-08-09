@@ -1,4 +1,4 @@
-Var ctRiver_geojson = {
+Var ctRiver.geojson = {
 "type": "FeatureCollection",
 "name": "NH_Historic_and_Cultural_Features_(CT_River)",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
