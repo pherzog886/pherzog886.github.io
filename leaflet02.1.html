@@ -39,7 +39,7 @@
                     opacity: 0.5
                 },
                 onEachFeature: function (feature, layer) {
-                    layer.bindPopup("<b>" "NAME:" + feature.properties.COMMENT + "</b>");
+                    layer.bindPopup("<b>" NAME: + feature.properties.COMMENT + "</b>");
                 }
             }).addTo(map);
         }
