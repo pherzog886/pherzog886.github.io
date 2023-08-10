@@ -21,6 +21,7 @@
     <h1>Hello Campus!</h1>
     <div id="map"></div>
     <script>
+        var keydestinationsLayer;
         var OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
@@ -44,14 +45,16 @@
                 }
             }).addTo(map);
 
-            L.geoJson(nhKeyDestinations_geojson, {
+           keydestinationsLayer = L.geoJson(nhKeyDestinations_geojson, {
                 style: {
                     color: "blue",
                     weight: 3,
                     opacity: 0.5
                 },
                 onEachFeature: function (feature, layer) {
-                    layer.bindPopup("<b> Name:" + feature.properties.NAME + "</b>");
+                    layer.bindPopup("<b> Name:" + feature.properties.NAME + "</b><br>" + 
+                    "Public:" +
+                     features.properties.public + "<br>"              );
                 }
             }).addTo(map);
             
