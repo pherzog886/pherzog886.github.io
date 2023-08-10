@@ -29,14 +29,14 @@
                 layers: [OpenStreetMap_HOT]
             });
 
-            L.geoJson(ctRiver.Geojson, {
+            L.geoJson(ctRiver.geoJson, {
                 style: {
                     color: "red",
                     weight: 3,
                     opacity: 0.5
                 },
                 onEachFeature: function (feature, layer) {
-                    layer.bindPopup("<b>Name: " + feature.properties.COMMENT + "</b>");
+                    layer.bindPopup("<b> Name:" + feature.properties.COMMENT + "</b>");
                 }
             }).addTo(map);
         }
