@@ -54,7 +54,7 @@
                 onEachFeature: function (feature, layer) {
                     layer.bindPopup("<b> Name: " + feature.properties.NAME + "</b><br>" + 
                     "Zip Code: " +
-                     features.properties.ZIP);
+                     feature.properties.ZIP);
                 }
             }).addTo(map);
             
