@@ -1,4 +1,4 @@
-var NHKeyDestinations_geojson = {
+var nhKeyDestinations_geojson = {
 "type": "FeatureCollection",
 "name": "NH_Key_Destinations_-_Polygons",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
