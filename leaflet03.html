@@ -27,6 +27,22 @@
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
         });
 
+        function lineSymbology(feature) {
+            var zip = feature.properties.ZIP
+            var lineWidth = 2;
+            var lineColor = "#a1d76a;"
+
+            if(zip > 032500) { lineColor - "#777777"; lineWidth = 4; }
+            if (zip > 037500) { lineColor = "Se9a3c9"; lindWifth =6; }
+
+            return {
+                color: lineColor,
+                weight: lineWidth,
+                opacity: 1
+            };
+            
+        }
+        
         function initialize() {
             var map = L.map('map', {
                 center: [43.7034, -72.2887],
@@ -46,11 +62,7 @@
             }).addTo(map);
 
            keydestinationsLayer = L.geoJson(nhKeyDestinations_geojson, {
-                style: {
-                    color: "blue",
-                    weight: 3,
-                    opacity: 0.5
-                },
+                style: lineSymbology,
                 onEachFeature: function (feature, layer) {
                     layer.bindPopup("<b> Name: " + feature.properties.NAME + "</b><br>" + 
                     "Zip Code: " +
