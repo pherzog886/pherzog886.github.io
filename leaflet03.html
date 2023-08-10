@@ -41,7 +41,7 @@
                     opacity: 0.5
                 },
                 onEachFeature: function (feature, layer) {
-                    layer.bindPopup("<b> Name:" + feature.properties.NAME + "</b>");
+                    layer.bindPopup("<b> Name: " + feature.properties.NAME + "</b>");
                 }
             }).addTo(map);
 
@@ -52,9 +52,9 @@
                     opacity: 0.5
                 },
                 onEachFeature: function (feature, layer) {
-                    layer.bindPopup("<b> Name:" + feature.properties.NAME + "</b><br>" + 
-                    "Public:" +
-                     features.properties.public_);
+                    layer.bindPopup("<b> Name: " + feature.properties.NAME + "</b><br>" + 
+                    "Zip Code: " +
+                     features.properties.zip);
                 }
             }).addTo(map);
             
