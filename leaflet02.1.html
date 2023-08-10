@@ -13,6 +13,7 @@
         html, body { height: 100%; margin: 0; padding: 0; }
     </style>
     <script src="river.geojson"></script>
+    <script srtc="nhKeyDestinations.geojson"></script>
     
 </head>
     
@@ -42,6 +43,18 @@
                     layer.bindPopup("<b> Name:" + feature.properties.NAME + "</b>");
                 }
             }).addTo(map);
+
+            L.geoJson(nhKeyDestinations_geojson, {
+                style: {
+                    color: "blue",
+                    weight: 3,
+                    opacity: 0.5
+                },
+                onEachFeature: function (feature, layer) {
+                    layer.bindPopup("<b> Name:" + feature.properties.NAME + "</b>");
+                }
+            }).addTo(map);
+            
         }
     </script>
 </body>
