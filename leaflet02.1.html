@@ -11,7 +11,7 @@
         #map { height: 400px; width: 700px; }
         html, body { height: 100%; margin: 0; padding: 0; }
     </style>
-    <script src="ctRiver.geojson"></script>
+    <script src="river.geojson"></script>
 </head>
 <body onload="initialize()">
     <h1>Hello Campus!</h1>
@@ -29,7 +29,7 @@
                 layers: [OpenStreetMap_HOT]
             });
 
-            L.geoJson(ctRiver.geojson, {
+            L.geoJson(river.geojson, {
                 style: {
                     color: "red",
                     weight: 3,
