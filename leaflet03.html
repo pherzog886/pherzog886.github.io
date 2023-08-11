@@ -90,9 +90,11 @@
 
             $("#toggle").click(function() {
                 if (keydestinationsvisible) {
+			console.log("turning off the key layer")
                     keydestinationsvisible = false;
                     keydestinationsLayer.removeFrom(map);
                 } else {
+			console.log("turning on the key layer")
                     keydestinationsvisible = true;
                     keydestinationsLayer.addTo(map);
                 }
