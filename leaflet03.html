@@ -25,6 +25,8 @@
         <button id="toggleDestinations"> Toggle the Destinations Layer. </button>
     <script>
         var keydestinationsLayer;
+        var keydestinationsvisible = false;
+        
         var OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
@@ -71,7 +73,17 @@
                     "Zip Code: " +
                      feature.properties.ZIP);
                 }
-            }).addTo(map);
+            });
+
+            $("#toggle").click(function() {
+                if (Destinations) {
+                    keydestinationsvisible = false;
+                    keydestinationsLayer.removeFrom(map);
+                } else {
+                    keydestinationsvisible = true;
+                    keydestinationsLayer.addTo(map);
+                }
+            })
             
         }
     </script>
