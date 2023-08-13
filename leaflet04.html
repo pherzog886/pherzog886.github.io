@@ -16,7 +16,7 @@
     </style>
     
     <script src="river.geojson"></script>
-    <script src="nhKeyDestinations.geojson"></script>
+    
     
 </head>
     
@@ -24,10 +24,10 @@
     <h1>Hello Campus!</h1>
     <div id="map"></div>
     <div id="buttons">
-        <button id="toggleDestinations"> Toggle the Destinations Layer. </button>
+        <button id="toggleDestinations" hidden> Toggle the Destinations Layer. </button>
     <script>
         var keydestinationsLayer;
-        var keydestinationsvisible = false;
+        var keydestinationsvisible = true;
         
         var OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
             maxZoom: 19,
@@ -79,28 +79,43 @@
                 }
             }).addTo(map);
 
-           keydestinationsLayer = L.geoJson(nhKeyDestinations_geojson, {
-                style: lineSymbology,
-                onEachFeature: function (feature, layer) {
-                    layer.bindPopup("<b> Name: " + feature.properties.NAME + "</b><br>" + 
-                    "Zip Code: " +
-                     feature.properties.ZIP);
-                }
-            });
+		var response = $.ajax({
+			URL: "nhKeyDestinations.geojson",
+			dataType: "json",
+			success: console.log("Destinations data Loaded!"),
+			error: function(xhr) {
+				alert(xhr.statusText);
+			}
+		});
 
-            $("#toggleDestinations").click(function() {
-                if (keydestinationsvisible) {
-			console.log("turning off the key layer")
-                    keydestinationsvisible = false;
-                    keydestinationsLayer.removeFrom(map);
-                } else {
-			console.log("turning on the key layer")
-                    keydestinationsvisible = true;
-                    keydestinationsLayer.addTo(map);
-                }
-            })
+		$.when(response).done(function() {
+			
+		
+		
+          			var keydestinationsLayer = L.geoJson(response.responseJSON, {
+                			style: lineSymbology,
+               				onEachFeature: function (feature, layer) {
+                    			layer.bindPopup("<b> Name: " + feature.properties.NAME + "</b><br>" + 
+                    			"Zip Code: " +
+                     			feature.properties.ZIP);
+               				 }
+          			  });
+
+			
+				#("toggleDestinations").show();
+           			$("#toggleDestinations").click(function() {
+         			       if (keydestinationsvisible) {
+					console.log("turning off the key layer")
+              			      keydestinationsvisible = false;
+                			    keydestinationsLayer.removeFrom(map);
+             				   } else {
+						console.log("turning on the key layer")
+               				     keydestinationsvisible = true;
+                 			   keydestinationsLayer.addTo(map);
+             			 	  }
+          			 })
             
-        }
+       			 }
     </script>
 </body>
 </html>
