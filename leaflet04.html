@@ -80,7 +80,7 @@
             }).addTo(map);
 
 		var response = $.ajax({
-			URL: "nhKeyDestinations.geojson",
+			URL: "https://new-hampshire-geodata-portal-1-nhgranit.hub.arcgis.com/datasets/NHGRANIT::nh-key-destinations-polygons/explore?location=43.499721%2C-71.544050%2C9.18&showTable=true",
 			dataType: "json",
 			success: console.log("Destinations data Loaded!"),
 			error: function(xhr) {
