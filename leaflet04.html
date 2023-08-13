@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello Campus!</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <style>
+        #map { height: 400px; width: 400px; }
+        html, body { height: 100%; margin: 0; padding: 0; }
+        #buttons { padding:10px; background: #f3d1c9; }
+    </style>
+    
+    <script src="river.geojson"></script>
+    <script src="nhKeyDestinations.geojson"></script>
+    
+</head>
+    
+<body onload="initialize()">
+    <h1>Hello Campus!</h1>
+    <div id="map"></div>
+    <div id="buttons">
+        <button id="toggleDestinations"> Toggle the Destinations Layer. </button>
+    <script>
+        var keydestinationsLayer;
+        var keydestinationsvisible = false;
+        
+        var OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
+        });
+	    
+	var Thunderforest_Outdoors = L.tileLayer('https://{s}.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey={apikey}', {
+	attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	apikey: 'ac507f92f1f8429195ce2d6a4f7ab546',
+	maxZoom: 22
+   	});
+
+        function lineSymbology(feature) {
+            var zip = feature.properties.ZIP
+            var lineWidth = 2;
+            var lineColor = "#a1d76a";
+
+            if(zip > "032500") { lineColor - "#8B0000"; lineWidth = 4; }
+            if (zip > "037500") { lineColor = "#e9a3c9"; lindWifth =6; }
+
+            return {
+                color: lineColor,
+                weight: lineWidth,
+                opacity: 1
+            };
+            
+        }
+        
+        function initialize() {
+            var map = L.map('map', {
+                center: [43.7034, -72.2887],
+                zoom: 15,
+            });
+	
+		var baseMaps = { "OSM" : OpenStreetMap_HOT,
+				 "Stamen" : Thunderforest_Outdoors
+		}
+
+		L.control.layers(baseMaps).addTo(map);
+		
+            L.geoJson(river_geojson, {
+                style: {
+                    color: "blue",
+                    weight: 3,
+                    opacity: 0.5
+                },
+                onEachFeature: function (feature, layer) {
+                    layer.bindPopup("<b> Name: " + feature.properties.NAME + "</b>");
+                }
+            }).addTo(map);
+
+           keydestinationsLayer = L.geoJson(nhKeyDestinations_geojson, {
+                style: lineSymbology,
+                onEachFeature: function (feature, layer) {
+                    layer.bindPopup("<b> Name: " + feature.properties.NAME + "</b><br>" + 
+                    "Zip Code: " +
+                     feature.properties.ZIP);
+                }
+            });
+
+            $("#toggleDestinations").click(function() {
+                if (keydestinationsvisible) {
+			console.log("turning off the key layer")
+                    keydestinationsvisible = false;
+                    keydestinationsLayer.removeFrom(map);
+                } else {
+			console.log("turning on the key layer")
+                    keydestinationsvisible = true;
+                    keydestinationsLayer.addTo(map);
+                }
+            })
+            
+        }
+    </script>
+</body>
+</html>
