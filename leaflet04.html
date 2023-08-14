@@ -14,19 +14,17 @@
         html, body { height: 100%; margin: 0; padding: 0; }
         #buttons { padding:10px; background: #f3d1c9; }
     </style>
-    
-    <script src="river.geojson"></script>
-    
-    
+    <script src="river.geojson"></script>   
 </head>
-    
+	
+    $(document).ready(function() { 
+	
 <body onload="initialize()">
     <h1>Hello Campus!</h1>
     <div id="map"></div>
     <div id="buttons">
         <button id="toggleDestinations" hidden> Toggle the Destinations Layer. </button>
     <script>
-	$(document).ready(function() {
         var keydestinationsLayer;
         var keydestinationsvisible = true;
         
@@ -116,8 +114,8 @@
              			 	  }
           			 })
             
-       			 })
-	});
+       			 })	
+	});	    
 </script>
 </body>
 </html>
