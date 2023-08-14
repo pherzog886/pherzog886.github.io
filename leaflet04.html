@@ -26,6 +26,7 @@
     <div id="buttons">
         <button id="toggleDestinations" hidden> Toggle the Destinations Layer. </button>
     <script>
+	$(document).ready(function) {
         var keydestinationsLayer;
         var keydestinationsvisible = true;
         
@@ -80,7 +81,7 @@
             }).addTo(map);
 
 		var response = $.ajax({
-			URL: "https://new-hampshire-geodata-portal-1-nhgranit.hub.arcgis.com/datasets/NHGRANIT::nh-key-destinations-polygons/explore?location=43.499721%2C-71.544050%2C9.18&showTable=true",
+			url: "nhKeyDestinations2.geoJson",
 			dataType: "json",
 			success: console.log("Destinations data Loaded!"),
 			error: function(xhr) {
@@ -115,7 +116,8 @@
              			 	  }
           			 })
             
-       			 });
-		</script>
+       			 })
+	});
+</script>
 </body>
 </html>
