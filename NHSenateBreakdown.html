@@ -68,13 +68,9 @@ $(document).ready( function() {
 		L.control.layers(baseMaps).addTo(map);
 		
             L.geoJson(nhSenate2020_geojson, {
-                style: {
-                    color: "blue",
-                    weight: 3,
-                    opacity: 0.5
-                },
+                style: lineSymbology
                 onEachFeature: function (feature, layer) {
-                    layer.bindPopup("<b> Name: " + feature.properties.NAME + "</b>");
+                    layer.bindPopup("<b> Name: " + feature.properties.pbpNAME + "</b>");
                 }
             }).addTo(map);
   
