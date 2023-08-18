@@ -37,8 +37,10 @@ $(document).ready( function() {
 
         function lineSymbology(feature) {
             var name = feature.properties.pbpNAME
-            var Messner =parseInt(feature.properties.field_2)
-            var Shaheen = parseInt(feature.properties.field_3)
+            var Messner =feature.properties.field_2
+		Messner = Messner.replace(/,/g,"");
+            var Shaheen = feature.properties.field_3
+		Shaheen = Shaheen.replace(/,/g,"");
             var ODonnell = feature.properties.field_4
             var WriteIn = feature.properties.field_5
             var lineWidth = 2;
