@@ -68,7 +68,7 @@ $(document).ready( function() {
 		L.control.layers(baseMaps).addTo(map);
 		
             L.geoJson(nhSenate2020_geojson, {
-                style: lineSymbology
+                style: lineSymbology,
                 onEachFeature: function (feature, layer) {
                     layer.bindPopup("<b> Name: " + feature.properties.pbpNAME + "</b>");
                 }
