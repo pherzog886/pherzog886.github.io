@@ -37,12 +37,13 @@ $(document).ready( function() {
 
         function lineSymbology(feature) {
             var name = feature.properties.pbpNAME
-            var Messner =feature.properties.field_2
-            var Shaheen = feature.properties.field_3
+            var Messner =parseInt(feature.properties.field_2)
+            var Shaheen = parseInt(feature.properties.field_3)
             var ODonnell = feature.properties.field_4
             var WriteIn = feature.properties.field_5
             var lineWidth = 2;
             var lineColor = "#7d7c87";
+		console.log(name,Messner,Shaheen)
 
             if (Messner > Shaheen) { lineColor - "#e80c0c"; lineWidth = 4; }
             if (Shaheen > Messner) { lineColor = "#1b0ce8"; lindWidth =4; }
