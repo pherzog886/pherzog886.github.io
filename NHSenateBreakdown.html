@@ -44,8 +44,32 @@
 	In Depth analysis, how it compares to previous elections. Insert photo of trends of New Hampshire?
 	<h2>Key Takeaways</h2>
 	In summary...
-	<img src="Shaheenspotify.jpeg">  
-    <script>
+	<h2>Suprise! Music X Shaheen </h2>
+		<img src="Shaheenspotify.jpeg">  
+		<div id="buttons">
+		<button id="job">
+    Students for Shaheen Spotify Playlist!
+</button>
+
+<p class="data" hidden id="job2">
+    https://open.spotify.com/playlist/5LL4WO2YF058emzTedmKPC?si=a61b8fdc036147e7
+</p>
+
+<script>
+  	  // $("p-job") <-- this will reference all of the <p-job2> tags
+   	 // $("#job") <-- this will reference all "#job2" ids
+   	 // $(".data") <-- this will reference all ".data" classes
+	
+   	 // use jQuery to listen for a button click
+   	 // toggle the hidden job message
+
+   		 $("button#job").click(
+           		 function() {
+               		 $("p#job").toggle();
+           	 }
+       		 );
+</script>
+<script>
 	    
 $(document).ready( function() {    
         var OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
