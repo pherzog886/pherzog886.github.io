@@ -188,6 +188,7 @@ $(document).ready( function() {
             var map = L.map('map', {
                 center: [43.4106, -71.3438],
                 zoom: 7,
+		layers: [OpenStreetMap_Hot]
             });
 	
 		var baseMaps = { "OSM" : OpenStreetMap_HOT,
@@ -201,7 +202,7 @@ $(document).ready( function() {
                 onEachFeature: function (feature, layer) {
                     layer.bindPopup("<b> Name: " + feature.properties.pbpNAME + "</b><br>" + 
                     "Shaheen Vote Total: " +
-                     feature.properties.field_3 + "<br>" + "Messner Vote Total:" + feature.properties.field_2);
+                     feature.properties.field_3 + "<br>" + "Messner Vote Total: " + feature.properties.field_2);
                 }
             }).addTo(map);
   
