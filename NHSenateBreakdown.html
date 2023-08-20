@@ -29,7 +29,6 @@
 			</ol>
 			<div>Also, I am partially biased towards this race because I worked on the campaign for Shaheen! Here's a photo from when she visited my hometown during the heat of the campaign.</div> 
 			<div><img src="Shaheen.jpg" style="width: auto; height: 300px"></div>  
-			<img src="xxx" style="height: 400px; width: auto">
 	<div><h2>The Race</h2></div>
 			<div><img src="MessnerShaheenside.png" style="width: auto; height: 200px"></div> 
 			<div> Photo of Shaheen and Messner, Obtained from WMUR. </div>
@@ -196,7 +195,9 @@ $(document).ready( function() {
             L.geoJson(nhSenate2020_geojson, {
                 style: lineSymbology,
                 onEachFeature: function (feature, layer) {
-                    layer.bindPopup("<b> Name: " + feature.properties.pbpNAME + "</b>");
+                    layer.bindPopup("<b> Name: " + feature.properties.pbpNAME + "</b><br>" + 
+                    "Shaheen Vote Total: " +
+                     feature.properties.field_03);
                 }
             }).addTo(map);
   
