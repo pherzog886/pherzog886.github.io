@@ -184,16 +184,17 @@ $(document).ready( function() {
             };
             
         }
-        
+
+		var baseMaps = { "OSM" : OpenStreetMap_HOT,
+				 "Stamen" : Thunderforest_Outdoors
+		}
+
+	
             var map = L.map('map', {
                 center: [43.4106, -71.3438],
                 zoom: 7,
 		layers: [OpenStreetMap_Hot]
             });
-	
-		var baseMaps = { "OSM" : OpenStreetMap_HOT,
-				 "Stamen" : Thunderforest_Outdoors
-		}
 
 		L.control.layers(baseMaps).addTo(map);
 		
