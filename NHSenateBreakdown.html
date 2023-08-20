@@ -189,12 +189,14 @@ $(document).ready( function() {
 				 "Stamen" : Thunderforest_Outdoors
 		}
 
+
+		
+		var map = L.map('map', {
+			center: [43.4106, -71.3438],
+			zoom: 7,
+			layers: [OpenStreetMap_HOT]
+		});
 	
-            var map = L.map('map', {
-                center: [43.4106, -71.3438],
-                zoom: 7,
-		layers: [OpenStreetMap_Hot]
-            });
 
 		L.control.layers(baseMaps).addTo(map);
 		
